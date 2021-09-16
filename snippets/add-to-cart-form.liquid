@@ -14,7 +14,7 @@
           type="submit"
           name="add"
           id="add-to-cart-button"
-          class="product-form__submit button button--full-width {% if dynamic_checkout and product.selling_plan_groups == empty %}button--secondary{% else %}button--primary{% endif %}"
+          class="main-product_button"
         {% if product.selected_or_first_available_variant.available == false %}disabled{% endif %}
         >
       

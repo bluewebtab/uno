@@ -97,6 +97,8 @@
         font-weight: var(--font-body-weight);
       }
 
+      
+
       @media screen and (min-width: 750px) {
         body {
           font-size: 1.6rem;
@@ -104,7 +106,30 @@
       }
     {% endstyle %}
 
+    
     {{ 'base.css' | asset_url | stylesheet_tag }}
+
+    {% style %}
+
+    /* START PRESETS */
+
+    .container,
+    .footer, 
+    .header{
+      padding: 0 25px;
+    }
+
+    .flex {
+      display:flex;
+    }
+
+    .space-between {
+      justify-content: space-between;
+    }
+
+
+    {% endstyle %}
+
 
     {%- unless settings.type_body_font.system? -%}
       <link rel="preload" as="font" href="{{ settings.type_body_font | font_url }}" type="font/woff2" crossorigin>

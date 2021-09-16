@@ -761,6 +761,20 @@ a.product__text {
   width: 2.2rem;
 }
 
+
+/* GENERAL STYLING  */
+.main-product_button{
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  appearance: none;
+  box-shadow: none;
+  font: inherit;
+  outline: none;
+}
+
+
 /* START PRODUCT PAGE */
 .product-template{
   padding-top: 24px;
@@ -791,6 +805,6 @@ a.product__text {
 }
 
 .main-product-img{
-  max-width: 650px;
+  width: 90%;
   padding: 1rem;
 }
