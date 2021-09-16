@@ -1,3 +1,5 @@
+{% comment %}
+
 <link rel="stylesheet" href="{{ 'component-list-menu.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="{{ 'component-search.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="{{ 'component-menu-drawer.css' | asset_url }}" media="print" onload="this.media='all'">
@@ -631,6 +633,61 @@
     }
   </script>
 {%- endif -%}
+
+{% endcomment %}
+
+<header class="header" id="header">
+    <div class="header-inner flex space-between">
+
+      <div class="menu-drawer">
+        <button class="menu-button">
+          <span>Menu</span>
+        </button>
+      </div>
+
+      <a href="/" class="header-title">{{shop.name}}</a>
+
+
+      <div class="cart-button-container">
+        <button class="cart-button">
+            <span>Cart</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="mini-cart">
+
+    </div>
+</header>
+
+<script>
+  console.log('hello')
+  const bodyTag = document.getElementsByTagName('body')[0];
+  const showAnnouncement = document.getElementsByClassName('announcement-bar');
+  const changeHeader = document.getElementById('header');
+
+  if (showAnnouncement.length > 0) {
+    changeHeader.style.paddingTop = '20px';
+
+    const onScroll = () => {
+    const scrollLocation = document.documentElement.scrollTop;
+
+    if(scrollLocation > 50){
+      changeHeader.style.paddingTop = '0';
+
+    }else{
+      changeHeader.style.paddingTop = '20px';
+
+    }
+    
+  }
+  window.addEventListener('scroll', onScroll)
+
+}
+
+
+  
+</script>
 
 {% schema %}
 {

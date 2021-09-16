@@ -761,23 +761,8 @@ a.product__text {
   width: 2.2rem;
 }
 
-
-/* GENERAL STYLING  */
-.main-product_button{
-  margin: 0;
-  padding: 0;
-  background-color: transparent;
-  border: none;
-  appearance: none;
-  box-shadow: none;
-  font: inherit;
-  outline: none;
-}
-
-
 /* START PRODUCT PAGE */
 .product-template{
-  padding-top: 24px;
   display: grid;
   grid-template-columns: calc((100% - 25px) / 2) calc((100% - 25px) / 2);
 }
@@ -789,14 +774,17 @@ a.product__text {
 }
 
 .product-description{
-  width: 50%;
+  width: 80%;
   margin-bottom: 30px;
 }
 
 .product-title{
-  margin-bottom: 50px;
   font-size: 24px;
   text-transform: uppercase;
+}
+
+.product-title h1{
+  margin-top: 0;
 }
 
 .product-option-row{
