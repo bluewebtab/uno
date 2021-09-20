@@ -119,6 +119,16 @@
       padding: 0 25px;
     }
 
+    button, input, option, textarea {
+      margin: 0;
+      padding: 0;
+      background-color: transparent;
+      border: none;
+      appearance: none;
+      box-shadow: none;
+      outline: none;
+    }
+
     /* GENERAL STYLING  */
     button{
       margin: 0;
@@ -198,8 +208,9 @@
 
     <link
     rel="stylesheet"
-    href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
+  />
+  <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
    
@@ -253,7 +264,6 @@
     {%- if settings.predictive_search_enabled -%}
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
-
     
 
    

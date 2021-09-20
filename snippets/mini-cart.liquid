@@ -15,11 +15,21 @@
                         <a :href="item.url">${ item.title }</a>
                     </div>
                     <div>
-                        ${ item.price }
+                        ${ money(item.price) }
+                    </div>
+                    <div class="mini-cart-quantity">
+                        <input type="text" v-model="item.quantity" />
+                        <button class="mini-cart-quantity-button" @click="decrement(item)">-</button>
+                        <button class="mini-cart-quantity-button"  @click="increment(item)">+</button>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="checkout-subtotal">
+            <p>Subtotal: </p>
+            <p>${ money(cart.total_price) }</p>
+        </div>
+        <a href="/checkout" class="checkout-button">Checkout</a>
     </template>
     <template v-else>
         <p class="cart-empty">The cart is empty</p>
