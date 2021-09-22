@@ -5,7 +5,19 @@
 {{ 'animate.css' | asset_url | stylesheet_tag }}
 {{ 'magnific-popup.css' | asset_url | stylesheet_tag }}
 
+<!-- assign variable that uses block.settings schema -->
+
+{%- assign p_color = section.blocks[1].settings.paragraph_color -%}
+
 <style>
+   
+   :root {
+       --paragraph-color: {{ p_color }};
+   }
+
+  .paragraph_color {
+      color: var(--paragraph-color);
+  }
 
     @media (min-width: 768px) {
         .text-stretch {
@@ -20,17 +32,24 @@
 
 
 <div id="wrapper" class="clearfix">
-
+    <h1>{{ font_color }}</h1>
     <!-- Hero Section
     ============================================= -->
     <section id="slider" class="slider-element min-vh-100">
 
         <div class="row align-items-center">
-
+          
             <div class="col-md-2 offset-md-1 p-5">
-                <h3 class="text-stretch display-3 fw-bold position-relative">Your Talent is Much Bigger than you Think.</h3>
-                <p class="position-relative text-stretch">Lorem, ipsum dolor, sit amet consectetur adipisicing elit. Iure repellat animi praesentium sunt magni quia consectetur numquam vero incidunt enim.</p>
-                <a href="#" class="btn btn-lg btn-dark rounded-0 mx-0 px-4 mt-4">Learn More</a>
+                {%- for block in section.blocks -%}
+                    {% case block.type %}
+                    {%- when 'heading' -%}
+                    <h3 class="text-stretch display-3 fw-bold position-relative colorAccent" style="color: {{ block.settings.title_color }}">{{ block.settings.title }}</h3>
+                    {%- when 'paragraph' -%}
+                    <p class="position-relative text-stretch paragraph_color">{{ block.settings.paragraph }}</p>
+                    {%- when 'button' -%}
+                    <a href="{{ block.settings.button_link }}" class="btn btn-lg btn-dark rounded-0 mx-0 px-4 mt-4">{{ block.settings.button_label }}</a>
+                    {%- endcase -%}
+                {%- endfor -%}
             </div>
 
             <img
@@ -173,6 +192,12 @@
         ],
         "default": "md",
         "label": "Font Size"
+      },
+      {
+        "type": "color",
+        "id": "title_color",
+        "label": "Title Color",
+        "default": "#000000"
       }
       ]
     },
@@ -186,6 +211,12 @@
         "id": "paragraph",
         "label": "Paragraph",
         "default": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old."
+      },
+      {
+        "type": "color",
+        "id": "paragraph_color",
+        "label": "Paragraph Color",
+        "default": "#000000"
       }
       ]
     },

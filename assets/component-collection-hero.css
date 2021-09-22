@@ -13,6 +13,10 @@
   padding-bottom: 2rem;
 }
 
+.shopify-section {
+  margin-top: 10px;
+}
+
 @media screen and (min-width: 750px) {
   .collection-hero.collection-hero--with-image {
     padding: 4rem 0 4rem;
