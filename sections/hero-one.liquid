@@ -19,6 +19,19 @@
       color: var(--paragraph-color);
   }
 
+  .hero1__title--sm {
+   font-size: 2rem;
+  }
+  .hero1__title--md {
+    font-size: 3rem;
+   }
+   .hero1__title--lg {
+     font-size: 4.5rem;
+    }
+    .hero1__title--xl {
+     font-size: 6rem;
+    }
+
     @media (min-width: 768px) {
         .text-stretch {
             position: relative;
@@ -37,13 +50,14 @@
     ============================================= -->
     <section id="slider" class="slider-element min-vh-100">
 
-        <div class="row align-items-center">
+        {% assign opacity = section.settings.opacity | divided_by: 100.00 %}
+        <div class="row align-items-center" style="background: {{ section.settings.background | color_modify: 'alpha', opacity }}">
           
             <div class="col-md-2 offset-md-1 p-5">
                 {%- for block in section.blocks -%}
                     {% case block.type %}
                     {%- when 'heading' -%}
-                    <h3 class="text-stretch display-3 fw-bold position-relative colorAccent" style="color: {{ block.settings.title_color }}">{{ block.settings.title }}</h3>
+                    <h3 class="text-stretch display-3 fw-bold position-relative hero1__title--{{ block.settings.title_size }}" style="color: {{ block.settings.title_color }}">{{ block.settings.title }}</h3>
                     {%- when 'paragraph' -%}
                     <p class="position-relative text-stretch paragraph_color">{{ block.settings.paragraph }}</p>
                     {%- when 'button' -%}
@@ -93,30 +107,6 @@
   "class": "spaced-section spaced-section--full-width",
   "settings": [
     {
-      "type": "select",
-      "id": "hero_height",
-      "options": [
-        {
-          "value": "25vh",
-          "label": "25%"
-        },
-        {
-          "value": "50vh",
-          "label": "50%"
-        },
-        {
-          "value": "75vh",
-          "label": "75%"
-        },
-        {
-          "value": "100vh",
-          "label": "100%"
-        }
-      ],
-      "default": "100vh",
-      "label": "Height"
-    },
-    {
       "type": "image_picker",
       "id": "image",
       "label": "t:sections.image-with-text.settings.image.label"
@@ -125,7 +115,7 @@
       "type": "color",
       "id": "background",
       "label": "Background",
-      "default": "#000000"
+      "default": "#ffffff"
     },
     {
       "type": "range",
@@ -135,26 +125,6 @@
       "step": 1,
       "label": "Opacity",
       "default": 50
-    },
-    {
-      "type": "select",
-      "id": "info_alignment",
-      "options": [
-        {
-          "value": "left",
-          "label": "Left"
-        },
-        {
-          "value": "center",
-          "label": "Center"
-        },
-        {
-          "value": "right",
-          "label": "Right"
-        }
-      ],
-      "default": "right",
-      "label": "Info Alignment"
     }
   ],
   "blocks": [
