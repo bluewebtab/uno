@@ -10439,7 +10439,7 @@ body:not(.device-touch) .social-icon i {
 
 .social-icon i:last-child { color: #FFF !important; }
 
-.social-icon:hover i:first-child { margin-top: -38px; }
+.social-icon:hover i:first-child { margin-top: -30px; }
 
 .social-icon.si-large:hover i:first-child { margin-top: -54px; }
 
@@ -10474,6 +10474,14 @@ body:not(.device-touch) .social-icon i {
 
 /* Social Icons - Share
 -----------------------------------------------------------------*/
+
+.si-first {
+	top: 10px;
+}
+
+.si-second {
+	top: 27px;
+}
 
 .si-share {
 	position: relative;
@@ -14056,7 +14064,7 @@ body:not(.device-touch) #gotoTop {
 
 #footer .footer-widgets-wrap {
 	position: relative;
-	padding: 80px 0;
+	
 }
 
 #copyrights {
@@ -14240,12 +14248,20 @@ body:not(.device-touch) .tagcloud a {
 .widget_pages:not(.widget-li-noicon) li::before,
 .widget_rss:not(.widget-li-noicon) li::before,
 .widget_recent_comments:not(.widget-li-noicon) li::before {
-	content: "\e7a5";
-	font-family: 'font-icons';
-	display: inline-block;
 	position: relative;
-	top: 1px;
-	left: 0;
+    content: "";
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-right: .2em solid #fff;
+    border-top: .2em solid #fff;
+    transform: rotate(
+45deg);
+    margin-right: .5em;
+    bottom: 0px;
+    top: 9px;
+    left: 0;
+    right: 0;
 }
 
 .widget_recent_comments li::before {

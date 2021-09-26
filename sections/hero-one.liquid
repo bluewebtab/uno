@@ -8,11 +8,16 @@
 <!-- assign variable that uses block.settings schema -->
 
 {%- assign p_color = section.blocks[1].settings.paragraph_color -%}
+{%- assign b_color = section.blocks[2].settings.button_color -%}
+{%- assign bt_color = section.blocks[2].settings.button_text_color -%}
 
 <style>
    
    :root {
        --paragraph-color: {{ p_color }};
+       --button-color: {{ b_color }};
+       --button_text-color: {{ bt_color }};
+
    }
 
   .paragraph_color {
@@ -32,6 +37,12 @@
      font-size: 6rem;
     }
 
+    .hero1_btn_color {
+      background: var(--button-color);
+      color: var(--button_text-color);
+
+    }
+
     @media (min-width: 768px) {
         .text-stretch {
             position: relative;
@@ -48,7 +59,7 @@
     <h1>{{ font_color }}</h1>
     <!-- Hero Section
     ============================================= -->
-    <section id="slider" class="slider-element min-vh-100">
+    <section id="slider" class="slider-element">
 
         {% assign opacity = section.settings.opacity | divided_by: 100.00 %}
         <div class="row align-items-center" style="background: {{ section.settings.background | color_modify: 'alpha', opacity }}">
@@ -61,7 +72,7 @@
                     {%- when 'paragraph' -%}
                     <p class="position-relative text-stretch paragraph_color">{{ block.settings.paragraph }}</p>
                     {%- when 'button' -%}
-                    <a href="{{ block.settings.button_link }}" class="btn btn-lg btn-dark rounded-0 mx-0 px-4 mt-4">{{ block.settings.button_label }}</a>
+                    <a href="{{ block.settings.button_link }}" class="hero1_btn_color btn btn-lg rounded-0 mx-0 px-4 mt-4">{{ block.settings.button_label }}</a>
                     {%- endcase -%}
                 {%- endfor -%}
             </div>
@@ -79,8 +90,7 @@
             loading="lazy"
             width="{{ section.settings.image.width }}"
             height="{{ section.settings.image.height }}"
-            class="col-md-9 order-md-2 min-vh-40"
-            style="height: 900px;"
+            class="col-md-9 order-md-2 min-vh-40 h-100"
           >
 
         </div>
@@ -206,6 +216,18 @@
           "type": "url",
           "id": "button_link",
           "label": "Link"
+        },
+        {
+          "type": "color",
+          "id": "button_color",
+          "label": "Button Color",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "button_text_color",
+          "label": "Button Text Color",
+          "default": "#ffffff"
         }
       ]
     }

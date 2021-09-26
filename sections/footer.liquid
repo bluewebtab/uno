@@ -1,4 +1,6 @@
-{% comment %}theme-check-disable UndefinedObject{% endcomment %}
+
+
+{% comment %}
 {{ 'section-footer.css' | asset_url | stylesheet_tag }}
 <link rel="stylesheet" href="{{ 'component-newsletter.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="{{ 'component-list-menu.css' | asset_url }}" media="print" onload="this.media='all'">
@@ -13,6 +15,8 @@
 <noscript>{{ 'component-list-social.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'component-rte.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'disclosure.css' | asset_url | stylesheet_tag }}</noscript>
+
+
 
 <footer class="footer color-{{ section.settings.color_scheme }} gradient">
   {%- if section.blocks.size > 0 or section.settings.newsletter_enable or section.settings.show_social -%}
@@ -364,189 +368,220 @@
   customElements.define('localization-form', LocalizationForm);
 {% endjavascript %}
 
+{% endcomment %}
+
+
+
+
+{{ 'hero-bootstrap.css' | asset_url | stylesheet_tag }}
+{{ 'hero-style.css' | asset_url | stylesheet_tag }}
+{{ 'dark.css' | asset_url | stylesheet_tag }}
+{{ 'animate.css' | asset_url | stylesheet_tag }}
+{{ 'magnific-popup.css' | asset_url | stylesheet_tag }}
+
+
+
+<footer id="footer" class="dark" style="background: black;">
+  <div class="container">
+    <!-- Footer Widgets
+    ============================================= -->
+    <div class="footer-widgets-wrap">
+
+      <div class="row col-mb-50">
+        <div class="col-md-8">
+          <div class="widget clearfix">
+
+
+
+            <div class="line" style="margin: 30px 0;"></div>
+
+            <div class="row col-mb-30">
+
+              {%- for block in section.blocks -%}
+              {%- for link in block.settings.menu.links -%}
+
+              <div class="col-6 col-lg-3 widget_links">
+                <ul>
+                  <li>
+                    <a href="{{ link.url }}">{{ link.title }}</a>
+                  </li>
+                </ul>
+              </div>
+              {%- endfor -%}
+
+              {%- endfor -%}
+
+            </div>
+
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="widget clearfix" style="margin-bottom: -20px;">
+
+          </div>
+
+          <div class="widget subscribe-widget clearfix">
+            <h5><strong>Subscribe</strong> to Our Newsletter to get Important News, Amazing Offers &amp; Inside Scoops:</h5>
+            <div class="widget-subscribe-form-result"></div>
+            <form id="widget-subscribe-form" action="include/subscribe.php" method="post" class="mb-0">
+              <div class="input-group mx-auto">
+                <div class="input-group-text"><i class="icon-email2"></i></div>
+                <input type="email" id="widget-subscribe-form-email" name="widget-subscribe-form-email" class="form-control required email" placeholder="Enter your Email">
+                <button class="btn btn-success" type="submit">Subscribe</button>
+              </div>
+            </form>
+          </div>
+
+          <div class="widget">
+            <div class="row col-mb-30">
+              <div class="col-6 col-sm-6 col-md-12 col-lg-6 clearfix">
+                <a href="#" class="social-icon si-dark si-colored mb-0" style="margin-right: 10px;">
+                  <i class="fab fa-facebook-f si-first"></i>
+                  <i class="fab fa-facebook-f si-second"></i>
+
+                </a>
+                <a href="#"><small style="display: block; margin-top: 3px;"><strong>Follow</strong><br>us on Facebook</small></a>
+              </div>
+
+              <div class="col-6 col-sm-6 col-md-12 col-lg-6 clearfix">
+                <a href="#" class="social-icon si-dark si-colored mb-0" style="margin-right: 10px;">
+                  <i class="fab fa-twitter si-first"></i>
+                  <i class="fab fa-twitter si-second"></i>
+
+                </a>
+                <a href="#"><small style="display: block; margin-top: 3px;"><strong>Follow</strong><br>us on Twitter</small></a>
+              </div>
+              <div class="col-6 col-sm-6 col-md-12 col-lg-6 clearfix">
+                <a href="#" class="social-icon si-dark si-colored mb-0" style="margin-right: 10px;">
+                  <i class="fab fa-youtube si-first"></i>
+                  <i class="fab fa-youtube si-second"></i>
+
+                </a>
+                <a href="#"><small style="display: block; margin-top: 3px;"><strong>Subscribe</strong><br>to us on Youtube</small></a>
+              </div>
+              <div class="col-6 col-sm-6 col-md-12 col-lg-6 clearfix">
+                <a href="#" class="social-icon si-dark si-colored mb-0" style="margin-right: 10px;">
+                  <i class="fab fa-tiktok si-first"></i>
+                  <i class="fab fa-tiktok si-second"></i>
+
+                </a>
+                <a href="#"><small style="display: block; margin-top: 3px;"><strong>Follow</strong><br>us on Tik Tok</small></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- .footer-widgets-wrap end -->
+  </div>
+
+  <!-- Copyrights
+  ============================================= -->
+  <div id="copyrights">
+    <div class="container">
+
+      <div class="row justify-content-between col-mb-30">
+        <div class="col-12 col-lg-auto text-center text-lg-start">
+         
+          Copyrights &copy; 2020 All Rights Reserved.
+        </div>
+      </div>
+
+    </div>
+  </div><!-- #copyrights end -->
+</footer><!-- #footer end -->
+
 {% schema %}
-{
-  "name": "t:sections.footer.name",
-  "blocks": [
-    {
-      "type": "link_list",
-      "name": "t:sections.footer.blocks.link_list.name",
-      "settings": [
-        {
-          "type": "text",
-          "id": "heading",
-          "default": "Quick links",
-          "label": "t:sections.footer.blocks.link_list.settings.heading.label",
-          "info": "t:sections.footer.blocks.link_list.settings.heading.info"
-        },
-        {
-          "type": "link_list",
-          "id": "menu",
-          "default": "footer",
-          "label": "t:sections.footer.blocks.link_list.settings.menu.label",
-          "info": "t:sections.footer.blocks.link_list.settings.menu.info"
-        }
-      ]
-    },
-    {
-      "type": "text",
-      "name": "t:sections.footer.blocks.text.name",
-      "settings": [
-        {
-          "type": "text",
-          "id": "heading",
-          "default": "Heading",
-          "label": "t:sections.footer.blocks.text.settings.heading.label"
-        },
-        {
-          "type": "richtext",
-          "id": "subtext",
-          "default": "<p>Share store details, promotions, or brand content with your customers.</p>",
-          "label": "t:sections.footer.blocks.text.settings.subtext.label"
-        }
-      ]
-    },
-    {
-      "type": "image",
-      "name": "Image",
-      "settings": [
-        {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Image"
-        },
-        {
-          "type": "range",
-          "id": "image_width",
-          "min": 50,
-          "max": 200,
-          "step": 5,
-          "unit": "px",
-          "label": "Image width",
-          "default": 100
-        },
-        {
-          "type": "select",
-          "id": "alignment",
-          "label": "Image alignment on large screen",
-          "options": [
-            {
-              "value": "",
-              "label": "Left"
-            },
-            {
-              "value": "center",
-              "label": "Center"
-            },
-            {
-              "value": "right",
-              "label": "Right"
-            }
-          ],
-          "default": "center"
-        }
-      ]
-    }
-  ],
-  "settings": [
-    {
-      "type": "select",
-      "id": "color_scheme",
-      "options": [
-        {
-          "value": "accent-1",
-          "label": "t:sections.footer.settings.color_scheme.options__1.label"
-        },
-        {
-          "value": "accent-2",
-          "label": "t:sections.footer.settings.color_scheme.options__2.label"
-        },
-        {
-          "value": "background-1",
-          "label": "t:sections.footer.settings.color_scheme.options__3.label"
-        },
-        {
-          "value": "background-2",
-          "label": "t:sections.footer.settings.color_scheme.options__4.label"
-        },
-        {
-          "value": "inverse",
-          "label": "t:sections.footer.settings.color_scheme.options__5.label"
-        }
-      ],
-      "default": "background-1",
-      "label": "t:sections.footer.settings.color_scheme.label"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.footer.settings.header__1.content",
-      "info": "t:sections.footer.settings.header__1.info"
-    },
-    {
-      "type": "checkbox",
-      "id": "newsletter_enable",
-      "default": true,
-      "label": "t:sections.footer.settings.newsletter_enable.label"
-    },
-    {
-      "type": "text",
-      "id": "newsletter_heading",
-      "default": "Subscribe to our emails",
-      "label": "t:sections.footer.settings.newsletter_heading.label"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.footer.settings.header__2.content",
-      "info": "t:sections.footer.settings.header__2.info"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_social",
-      "default": false,
-      "label": "t:sections.footer.settings.show_social.label"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.footer.settings.header__3.content",
-      "info": "t:sections.footer.settings.header__4.info"
-    },
-    {
-      "type": "checkbox",
-      "id": "enable_country_selector",
-      "default": true,
-      "label": "t:sections.footer.settings.enable_country_selector.label"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.footer.settings.header__5.content",
-      "info": "t:sections.footer.settings.header__6.info"
-    },
-    {
-      "type": "checkbox",
-      "id": "enable_language_selector",
-      "default": true,
-      "label": "t:sections.footer.settings.enable_language_selector.label"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.footer.settings.header__7.content"
-    },
-    {
-      "type": "checkbox",
-      "id": "payment_enable",
-      "default": true,
-      "label": "t:sections.footer.settings.payment_enable.label"
-    }
-  ],
-  "default": {
+  {
+    "name": "t:sections.footer.name",
     "blocks": [
       {
-        "type": "link_list"
+        "type": "link_list",
+        "name": "t:sections.footer.blocks.link_list.name",
+        "settings": [
+          {
+            "type": "text",
+            "id": "heading",
+            "default": "Quick links",
+            "label": "t:sections.footer.blocks.link_list.settings.heading.label",
+            "info": "t:sections.footer.blocks.link_list.settings.heading.info"
+          },
+          {
+            "type": "link_list",
+            "id": "menu",
+            "default": "footer",
+            "label": "t:sections.footer.blocks.link_list.settings.menu.label",
+            "info": "t:sections.footer.blocks.link_list.settings.menu.info"
+          }
+        ]
       },
       {
-        "type": "text"
+        "type": "text",
+        "name": "t:sections.footer.blocks.text.name",
+        "settings": [
+          {
+            "type": "text",
+            "id": "heading",
+            "default": "Heading",
+            "label": "t:sections.footer.blocks.text.settings.heading.label"
+          },
+          {
+            "type": "richtext",
+            "id": "subtext",
+            "default": "<p>Share store details, promotions, or brand content with your customers.</p>",
+            "label": "t:sections.footer.blocks.text.settings.subtext.label"
+          }
+        ]
       }
-    ]
+    ],
+    "settings": [
+      {
+          "type": "textarea",
+          "id": "footer_p",
+          "label": "Extra Info",
+          "default": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+      },
+      {
+        "type": "header",
+        "content": "t:sections.footer.settings.header__1.content",
+        "info": "t:sections.footer.settings.header__1.info"
+      },
+      {
+        "type": "checkbox",
+        "id": "newsletter_enable",
+        "default": true,
+        "label": "t:sections.footer.settings.newsletter_enable.label"
+      },
+      {
+        "type": "text",
+        "id": "newsletter_heading",
+        "default": "Sign up to our emails",
+        "label": "t:sections.footer.settings.newsletter_heading.label"
+      },
+      {
+        "type": "header",
+        "content": "t:sections.footer.settings.header__2.content",
+        "info": "t:sections.footer.settings.header__2.info"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_social",
+        "default": false,
+        "label": "t:sections.footer.settings.show_social.label"
+      },
+      {
+        "type": "link_list",
+        "id": "footer_bottom_menu", 
+        "label": "Footer Bottom Menu"
+      }
+    ],
+    "default": {
+      "blocks": [
+        {
+          "type": "link_list"
+        }
+      ]
+    }
   }
-}
 {% endschema %}
