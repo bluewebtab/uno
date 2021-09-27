@@ -420,56 +420,72 @@
           <div class="widget clearfix" style="margin-bottom: -20px;">
 
           </div>
-
+          {% if section.settings.newsletter_enable != false%}
           <div class="widget subscribe-widget clearfix">
-            <h5><strong>Subscribe</strong> to Our Newsletter to get Important News, Amazing Offers &amp; Inside Scoops:</h5>
+            <h5>{{ section.settings.newsletter_heading }}</h5>
             <div class="widget-subscribe-form-result"></div>
-            <form id="widget-subscribe-form" action="include/subscribe.php" method="post" class="mb-0">
+            {%- form 'customer' -%}
+            <!-- <form id="widget-subscribe-form" action="include/subscribe.php" method="post" class="mb-0"> -->
               <div class="input-group mx-auto">
                 <div class="input-group-text"><i class="icon-email2"></i></div>
                 <input type="email" id="widget-subscribe-form-email" name="widget-subscribe-form-email" class="form-control required email" placeholder="Enter your Email">
-                <button class="btn btn-success" type="submit">Subscribe</button>
+                <button class="btn btn-dark" type="submit">Subscribe</button>
               </div>
-            </form>
+            <!-- </form> -->
+            {%- endform -%}
           </div>
-
+          {% endif %}
+          {% if section.settings.show_social != false %}
           <div class="widget">
             <div class="row col-mb-30">
+
+              {%- if settings.social_facebook_link != blank -%}
               <div class="col-6 col-sm-6 col-md-12 col-lg-6 clearfix">
-                <a href="#" class="social-icon si-dark si-colored mb-0" style="margin-right: 10px;">
+                <a href="{{ settings.social_facebook_link }}" class="social-icon si-dark si-colored mb-0" style="margin-right: 10px;">
                   <i class="fab fa-facebook-f si-first"></i>
                   <i class="fab fa-facebook-f si-second"></i>
 
                 </a>
-                <a href="#"><small style="display: block; margin-top: 3px;"><strong>Follow</strong><br>us on Facebook</small></a>
+                <a href="{{ settings.social_facebook_link }}"><small style="display: block; margin-top: 3px;"><strong>Follow</strong><br>us on Facebook</small></a>
               </div>
+              {%- endif -%}
 
+              {%- if settings.social_twitter_link != blank -%}
               <div class="col-6 col-sm-6 col-md-12 col-lg-6 clearfix">
-                <a href="#" class="social-icon si-dark si-colored mb-0" style="margin-right: 10px;">
+                <a href="{{ settings.social_twitter_link }}" class="social-icon si-dark si-colored mb-0" style="margin-right: 10px;">
                   <i class="fab fa-twitter si-first"></i>
                   <i class="fab fa-twitter si-second"></i>
 
                 </a>
-                <a href="#"><small style="display: block; margin-top: 3px;"><strong>Follow</strong><br>us on Twitter</small></a>
+                <a href="{{ settings.social_twitter_link }}"><small style="display: block; margin-top: 3px;"><strong>Follow</strong><br>us on Twitter</small></a>
               </div>
+              {%- endif -%}
+
+              {%- if settings.social_youtube_link != blank -%}
               <div class="col-6 col-sm-6 col-md-12 col-lg-6 clearfix">
-                <a href="#" class="social-icon si-dark si-colored mb-0" style="margin-right: 10px;">
+                <a href="{{ settings.social_youtube_link }}" class="social-icon si-dark si-colored mb-0" style="margin-right: 10px;">
                   <i class="fab fa-youtube si-first"></i>
                   <i class="fab fa-youtube si-second"></i>
 
                 </a>
-                <a href="#"><small style="display: block; margin-top: 3px;"><strong>Subscribe</strong><br>to us on Youtube</small></a>
+                <a href="{{ settings.social_youtube_link }}"><small style="display: block; margin-top: 3px;"><strong>Subscribe</strong><br>to us on Youtube</small></a>
               </div>
+              {%- endif -%}
+
+              {%- if settings.social_tiktok_link != blank -%}
               <div class="col-6 col-sm-6 col-md-12 col-lg-6 clearfix">
-                <a href="#" class="social-icon si-dark si-colored mb-0" style="margin-right: 10px;">
+                <a href="{{ settings.social_tiktok_link }}" class="social-icon si-dark si-colored mb-0" style="margin-right: 10px;">
                   <i class="fab fa-tiktok si-first"></i>
                   <i class="fab fa-tiktok si-second"></i>
 
                 </a>
-                <a href="#"><small style="display: block; margin-top: 3px;"><strong>Follow</strong><br>us on Tik Tok</small></a>
+                <a href="{{ settings.social_tiktok_link }}"><small style="display: block; margin-top: 3px;"><strong>Follow</strong><br>us on Tik Tok</small></a>
               </div>
+              {%- endif -%}
+
             </div>
           </div>
+          {% endif %}
         </div>
       </div>
 
@@ -543,11 +559,6 @@
           "default": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
       },
       {
-        "type": "header",
-        "content": "t:sections.footer.settings.header__1.content",
-        "info": "t:sections.footer.settings.header__1.info"
-      },
-      {
         "type": "checkbox",
         "id": "newsletter_enable",
         "default": true,
@@ -558,11 +569,6 @@
         "id": "newsletter_heading",
         "default": "Sign up to our emails",
         "label": "t:sections.footer.settings.newsletter_heading.label"
-      },
-      {
-        "type": "header",
-        "content": "t:sections.footer.settings.header__2.content",
-        "info": "t:sections.footer.settings.header__2.info"
       },
       {
         "type": "checkbox",
