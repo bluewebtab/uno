@@ -2256,6 +2256,51 @@ details-disclosure > details {
   .overflow-hidden-tablet {
     overflow: auto;
   }
+
+  /* start menu drawer */
+   .menu-drawer{
+     position:absolute;
+     top: 0;
+     left: 0;
+     bottom: 0;
+     height: 100vh;
+     width: 100%;
+     z-index: 99;
+     max-width: 350px;
+     background: white;
+     padding: 72px 25px 25px 25px;
+     transition: transform .4s ease-in-out;
+   }
+
+   .menuNotVisible{
+     transform: translateX(-100%);
+   }
+
+   .menu-drawer-inner{
+     height: 100%;
+     display: flex;
+     flex-direction: column;
+     justify-content: space-between;
+   }
+
+   .menu-button{
+     z-index: 999;
+     transition: .15s;
+   }
+
+  /* end menu drawer */
+}
+
+@media screen and (max-width: 990px) {
+
+
+  /* start menu drawer */
+   .menu-drawer{
+      position:fixed;
+      width: calc(100vw - 50px);
+   }
+
+  /* end menu drawer */
 }
 
 .badge {

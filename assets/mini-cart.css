@@ -2,10 +2,7 @@
 /* .mini-cart.hidden {
     transform: translateX(100%);
 } */
-.mini-cart-close-button {
-    opacity: 0;
-    transition: none;
-}
+
 .mini-cart-close-button {
     cursor: pointer;
     position: absolute;

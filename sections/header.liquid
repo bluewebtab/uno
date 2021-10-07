@@ -5,17 +5,17 @@
 <header class="header" id="header">
     <div class="header-inner flex space-between">
 
-      <div class="menu-drawer">
-        {% unless template == "product" %}
-        <button class="menu-button">
-          <span>Menu</span>
-        </button>
-        {% else %}
-        <a href="javascript:history.back()" class="menu-button">
-          <span>Back</span>
-        </a>
-        {% endunless %}
-      </div>
+      
+      {% unless template == "product" %}
+      <button class="menu-button" @click="toggleMenu">
+        <span>Menu</span>
+      </button>
+      {% else %}
+      <a href="javascript:history.back()" class="menu-button">
+        <span>Back</span>
+      </a>
+      {% endunless %}
+    
 
       <a href="/" class="header-title">{{shop.name}}</a>
 
@@ -29,6 +29,10 @@
             </span>
         </button>
       </div>
+    </div>
+
+    <div class="menu-drawer" :class="{ menuNotVisible: menuDrawer }">
+      {% render 'menu-drawer' %}
     </div>
 
     <div class="mini-cart" :class="{ notVisible: miniCart }">
@@ -123,6 +127,9 @@ if(document.querySelector('#header')){
     methods: {
       toggleMiniCart(){
         toggleMiniCart.openCart()
+      },
+      toggleMenu(){
+        toggleMenu.openMenu()
       },
       closeAllDrawers(){
           toggleClose.closeAll()
