@@ -1970,6 +1970,7 @@ input[type='checkbox'] {
   .header{
     position: static;
   }
+
   .header-inner {
     height: 72px;
     align-items: center;
@@ -2284,8 +2285,31 @@ details-disclosure > details {
    }
 
    .menu-button{
+     position: relative;
+     cursor: pointer;
      z-index: 999;
      transition: .15s;
+   }
+
+   .menu-button:hover {
+     padding-left: 15px;
+   }
+
+   .menu-button:hover .menu-arrow-icon {
+     opacity: 1;
+     left: 0;
+   }
+
+   .menu-arrow-icon {
+     transform: rotate(180deg);
+     opacity: 0;
+     width: 11.5px;
+     height: 12px;
+     position: absolute;
+     top: 5px;
+     left: -15px;
+     transition: 0.15s;
+    pointer-events: none;
    }
 
   /* end menu drawer */
@@ -2295,10 +2319,64 @@ details-disclosure > details {
 
 
   /* start menu drawer */
-   .menu-drawer{
+   /* .menu-drawer{
       position:fixed;
       width: calc(100vw - 50px);
-   }
+   } */
+
+
+    /* start menu drawer */
+    .menu-drawer{
+      position:absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      height: 100vh;
+      z-index: 99;
+      width: calc(100vw - 50px);
+      background: white;
+      padding: 72px 25px 25px 25px;
+      transition: transform .4s ease-in-out;
+    }
+ 
+    .menuNotVisible{
+      transform: translateX(-100%);
+    }
+ 
+    .menu-drawer-inner{
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+ 
+    .menu-button{
+      position: relative;
+      cursor: pointer;
+      z-index: 999;
+      transition: .15s;
+    }
+ 
+    .menu-button:hover {
+      padding-left: 15px;
+    }
+ 
+    .menu-button:hover .menu-arrow-icon {
+      opacity: 1;
+      left: 0;
+    }
+ 
+    .menu-arrow-icon {
+      transform: rotate(180deg);
+      opacity: 0;
+      width: 11.5px;
+      height: 12px;
+      position: absolute;
+      top: 5px;
+      left: -15px;
+      transition: 0.15s;
+     pointer-events: none;
+    }
 
   /* end menu drawer */
 }

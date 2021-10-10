@@ -100,6 +100,7 @@
         font-family: var(--font-body-family);
         font-style: var(--font-body-style);
         font-weight: var(--font-body-weight);
+        -webkit-font-smoothing: antialiased;
       }
 
       
@@ -179,16 +180,33 @@
       z-index: 10;
 
     }
+
+    
     .header-inner {
       height: 72px;
       align-items: center;
       border-bottom: 1px solid;
     }
 
+  
+
+
     .header-title{
       position: absolute;
       left: 50%;
       transform: translate(-50%);
+    }
+
+    .pagination-custom {
+      padding-left: 0;
+      list-style: none;
+    }
+
+
+    @media screen and (max-width: 990px) {
+      .header-inner{
+        display:none;
+      }
     }
 
 
