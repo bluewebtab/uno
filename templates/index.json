@@ -1,5 +1,44 @@
 {
   "sections": {
+    "163408181964737785": {
+      "type": "hero-one",
+      "blocks": {
+        "163408181964737785-0": {
+          "type": "heading",
+          "settings": {
+            "title": "NEW COLLECTION",
+            "title_size": "md",
+            "title_color": "#000000"
+          }
+        },
+        "163408181964737785-1": {
+          "type": "paragraph",
+          "settings": {
+            "paragraph": "Here is the New Collection for 2021",
+            "paragraph_color": "#000000"
+          }
+        },
+        "163408181964737785-2": {
+          "type": "button",
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_color": "#000000",
+            "button_text_color": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "163408181964737785-0",
+        "163408181964737785-1",
+        "163408181964737785-2"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/model-in-neutral-colors-by-window.jpg",
+        "background": "#ffffff",
+        "opacity": 50
+      }
+    },
     "image_banner": {
       "type": "image-banner",
       "blocks": {
@@ -163,6 +202,7 @@
     }
   },
   "order": [
+    "163408181964737785",
     "image_banner",
     "rich_text",
     "collage",
