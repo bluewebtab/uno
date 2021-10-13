@@ -43,6 +43,8 @@
 
     }
 
+    
+
     @media (min-width: 768px) {
         .text-stretch {
             position: relative;
@@ -51,11 +53,23 @@
         }
     }
 
+    @media (max-width: 768px) {
+
+      .hero-one-container-mobile{
+        margin-top: 4rem !important;
+      }
+       .hero-one-mobile{
+         height: auto;
+       }
+
+    
+    }
+
 </style>
 
 
 
-<div id="wrapper" class="clearfix">
+<div class="clearfix">
     <h1>{{ font_color }}</h1>
     <!-- Hero Section
     ============================================= -->
@@ -64,7 +78,7 @@
         {% assign opacity = section.settings.opacity | divided_by: 100.00 %}
         <div class="row align-items-center" style="background: {{ section.settings.background | color_modify: 'alpha', opacity }}">
           
-            <div class="col-md-2 offset-md-1 p-5">
+            <div class="col-md-2 offset-md-1 p-5 hero-one-container-mobile">
                 {%- for block in section.blocks -%}
                     {% case block.type %}
                     {%- when 'heading' -%}
@@ -72,7 +86,7 @@
                     {%- when 'paragraph' -%}
                     <p class="position-relative text-stretch paragraph_color">{{ block.settings.paragraph }}</p>
                     {%- when 'button' -%}
-                    <a href="{{ block.settings.button_link }}" class="hero1_btn_color btn btn-lg rounded-0 mx-0 px-4 mt-4">{{ block.settings.button_label }}</a>
+                    <a href="{{ block.settings.button_link }}" class="hero1_btn_color btn-lg rounded-0 mx-0 px-4 mt-4">{{ block.settings.button_label }}</a>
                     {%- endcase -%}
                 {%- endfor -%}
             </div>
@@ -89,8 +103,8 @@
             alt="{{ section.settings.image.alt | escape }}"
             loading="lazy"
             width="{{ section.settings.image.width }}"
-            height="{{ section.settings.image.height }}"
-            class="col-md-9 order-md-2 min-vh-40 h-100"
+            height="{{ section.settings.hero_one_height }}"
+            class="col-md-9 order-md-2 min-vh-40 hero-one-mobile"
           >
 
         </div>
@@ -126,6 +140,17 @@
       "id": "background",
       "label": "Background",
       "default": "#ffffff"
+    },
+    {
+    
+      "type": "range",
+      "id": "hero_one_height",
+      "min": 800,
+      "max": 1500,
+      "step": 100,
+      "unit": "px",
+      "label": "Hero One Height",
+      "default": 800
     },
     {
       "type": "range",
