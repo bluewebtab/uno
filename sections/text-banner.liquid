@@ -1,0 +1,42 @@
+<div class="section topmargin mb-0 border-bottom-0" style="background: {{ section.settings.banner_background_color }}">
+    <div class="container clearfix">
+        <div class="heading-block center m-0">
+            <h1 style="color: {{ section.settings.banner_text_color }}">{{section.settings.banner_title}}</h1>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+    {
+    
+    "name": "Text Banner",
+    "settings": [
+        
+    {
+    "type": "text",
+    "id": "banner_title",
+    "label": "Banner Title",
+    "default": "Banner Text Goes Here"
+    },
+    {
+        "type": "color",
+        "id": "banner_background_color",
+        "label": "Banner Background Color",
+        "default": "#ffffff"
+    },
+    {
+        "type": "color",
+        "id": "banner_text_color",
+        "label": "Banner Text Color",
+        "default": "#000000"
+    }
+    
+    ],
+    "presets": [
+    {
+      "name": "Text Banner"
+     
+    }
+  ]
+    }
+{% endschema %}

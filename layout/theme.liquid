@@ -35,6 +35,21 @@
     {% render 'meta-tags' %}
 
     <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<!-- SLIDER REVOLUTION 5.x SCRIPTS
+============================================= -->
+<script src="{{ 'jquery.themepunch.tools.min.js' | asset_url }}"></script>
+<script src="{{ 'jquery.themepunch.revolution.min.js' | asset_url }}"></script>
+<script src="{{ 'revolution.extension.video.min.js' | asset_url }}"></script>
+<script src="{{ 'revolution.extension.slideanims.min.js' | asset_url }}"></script>
+<script src="{{ 'revolution.extension.actions.min.js' | asset_url }}"></script>
+<script src="{{ 'revolution.extension.layeranimation.min.js' | asset_url }}"></script>
+<script src="{{ 'revolution.extension.kenburn.min.js' | asset_url }}"></script>
+<script src="{{ 'revolution.extension.navigation.min.js' | asset_url }}"></script>
+<script src="{{ 'revolution.extension.migration.min.js' | asset_url }}"></script>
+<script src="{{ 'revolution.extension.parallax.min.js' | asset_url }}"></script>
+
+
     {{ content_for_header }}
 
     {%- liquid
@@ -114,6 +129,9 @@
 
     
     {{ 'base.css' | asset_url | stylesheet_tag }}
+    {{ 'settings.css' | asset_url | stylesheet_tag }}
+    {{ 'layers.css' | asset_url | stylesheet_tag }}
+    {{ 'navigation.css' | asset_url | stylesheet_tag }}
 
     {% style %}
 
