@@ -36,31 +36,7 @@
 
     <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
 
-    <!-- SLIDER REVOLUTION 5.x SCRIPTS
-============================================= -->
-{{ 'jquery.js' | asset_url | script_tag }}
-{{ 'plugins.min.js' | asset_url | script_tag }}
-{{ 'functions.js' | asset_url | script_tag }}
 
-
-{{ 'jquery.themepunch.tools.min.js' | asset_url | script_tag  }}
-
-
-{{ 'jquery.themepunch.revolution.min.js' | asset_url | script_tag  }}
-{{ 'revolution.extension.video.min.js' | asset_url | script_tag  }}
-{{ 'revolution.extension.slideanims.min.js' | asset_url | script_tag }}
-{{ 'revolution.extension.actions.min.js' | asset_url | script_tag }}
-{{ 'revolution.extension.layeranimation.min.js' | asset_url | script_tag }}
-{{ 'revolution.extension.kenburn.min.js' | asset_url | script_tag }}
-{{ 'revolution.extension.navigation.min.js' | asset_url | script_tag }}
-{{ 'revolution.extension.migration.min.js' | asset_url | script_tag }}
-{{ 'revolution.extension.parallax.min.js' | asset_url | script_tag }}
-{{ 'hello.js' | asset_url | script_tag  }}
-
-
-<script>
-  console.log('hello')
-</script>
     {{ content_for_header }}
 
     {%- liquid
@@ -264,6 +240,7 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
    
     <script src="https://unpkg.com/vue@3.0.5"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js" integrity="sha512-eP6ippJojIKXKO8EPLtsUMS+/sAGHGo1UN/38swqZa1ypfcD4I0V/ac5G3VzaHfDaklFmQLEs51lhkkVaqg60Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- <script src="https://unpkg.com/vue@3.0.5/dist/vue.global.prod.js"></script> -->
 
   </head>
